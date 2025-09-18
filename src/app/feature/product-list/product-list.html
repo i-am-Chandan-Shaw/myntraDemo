@@ -1,0 +1,40 @@
+<section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 bg-white">
+  @for (product of products(); track product.id) {
+  <div class="group bg-white border border-gray-200 rounded-lg hover:shadow-lg transition-all duration-300 overflow-hidden">
+    <div class="aspect-square bg-gray-50 relative overflow-hidden">
+      @if ((((product.price - product.discount_price) / product.price) * 100) > 20) {
+      <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded z-10">
+        SALE
+      </span>
+      }
+      <img 
+        [src]="product.image" 
+        [alt]="product.name" 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+    
+    <div class="p-3">
+      <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">{{ product.brand }}</p>
+      <h3 class="font-semibold text-sm text-gray-900 mb-2 line-clamp-1">{{ product.name }}</h3>
+      
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-lg font-bold text-gray-900">₹{{ product.discount_price }}</span>
+        @if (product.price !== product.discount_price) {
+        <span class="text-xs line-through text-gray-400">₹{{ product.price }}</span>
+        <span class="text-xs font-semibold text-green-600">{{ Math.round(((product.price - product.discount_price) / product.price) * 100) }}% off</span>
+        }
+      </div>
+      
+      <p class="text-xs text-gray-600 mb-3">Size: {{ product.sizes[0] }}-{{ product.sizes[product.sizes.length-1] }}</p>
+      
+      <button class="w-full bg-black text-white py-2 text-sm font-semibold rounded-md hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        Add to Bag
+      </button>
+    </div>
+  </div>
+  }
+</section>

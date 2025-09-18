@@ -1,0 +1,86 @@
+<section class="p-4 bg-white rounded-lg border border-gray-200">
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-lg font-semibold text-gray-900">Filters</h2>
+    <button 
+      class="text-sm text-gray-600 hover:text-gray-900"
+      (click)="clearFilters()"
+    >
+      Clear
+    </button>
+  </div>
+  
+  <div class="mb-5">
+    <h3 class="text-sm font-semibold text-gray-900 mb-3">Categories</h3>
+    @if (products().length > 0) {
+      <div class="space-y-2">
+        @for (cat of categories(); track cat) {
+          <label class="flex items-center cursor-pointer">
+            <p-checkbox
+              [inputId]="cat"
+              [value]="cat"
+              [ngModel]="selectedCategories()"
+              (ngModelChange)="onCategoryChange(cat)"
+            />
+            <span class="ml-2 text-sm text-gray-700">{{ cat }}</span>
+          </label>
+        }
+      </div>
+    } @else {
+      <span class="text-gray-400 text-sm">No categories available</span>
+    }
+  </div>
+  
+  <div class="mb-5">
+    <h3 class="text-sm font-semibold text-gray-900 mb-3">Brands</h3>
+    @if (products().length > 0) {
+      <div class="space-y-2">
+        @for (brand of brands(); track brand) {
+          <label class="flex items-center cursor-pointer">
+            <p-checkbox
+              [inputId]="brand"
+              [value]="brand"
+              [ngModel]="selectedBrands()"
+              (ngModelChange)="onBrandChange(brand)"
+            />
+            <span class="ml-2 text-sm text-gray-700">{{ brand }}</span>
+          </label>
+        }
+      </div>
+    } @else {
+      <span class="text-gray-400 text-sm">No brands available</span>
+    }
+  </div>
+  
+  <div class="mb-5">
+    <h3 class="text-sm font-semibold text-gray-900 mb-3">Price Range</h3>
+    <p-slider
+      [ngModel]="rangeValues()"
+      [range]="true"
+      [min]="minPrice()"
+      [max]="maxPrice()"
+      (ngModelChange)="onPriceChange($event)"
+      class="w-full mb-2"
+    />
+    <div class="flex justify-between text-xs text-gray-600">
+      <span>₹{{ rangeValues()[0] }}</span>
+      <span>₹{{ rangeValues()[1] }}</span>
+    </div>
+  </div>
+  
+  <div class="mb-5">
+    <h3 class="text-sm font-semibold text-gray-900 mb-3">Minimum Discount</h3>
+    <div class="flex gap-3 flex-wrap">
+      @for (percent of discountPercents(); track percent) {
+        <label class="flex items-center cursor-pointer">
+          <p-radiobutton
+            [inputId]="'discount' + percent"
+            [value]="percent"
+            [ngModel]="selectedDiscountPercent()"
+            (ngModelChange)="onDiscountChange(percent)"
+          />
+          <span class="ml-2 text-sm text-gray-700">{{ percent }}%</span>
+        </label>
+      }
+    </div>
+  </div>
+</section>
