@@ -66,17 +66,7 @@
       "color": "Beige",
       "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=800&q=80"
     },
-    {
-      "id": 7,
-      "name": "Basic Polo Shirt",
-      "category": "Topwear",
-      "brand": "H&M",
-      "price": 999,
-      "discount_price": 699,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": "Navy",
-      "image": "https://images.unsplash.com/photo-1594955685346-719e28368cbd?auto=format&fit=crop&w=800&q=80"
-    },
+
     {
       "id": 8,
       "name": "Slim Fit Trousers",
@@ -495,17 +485,7 @@
       "color": "Black",
       "image": "https://images.unsplash.com/photo-1618354691438-25bc04584c23?auto=format&fit=crop&w=800&q=80"
     },
-    {
-      "id": 46,
-      "name": "Athletic Shorts",
-      "category": "Bottomwear",
-      "brand": "H&M",
-      "price": 1299,
-      "discount_price": 899,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": "Black",
-      "image": "https://images.unsplash.com/photo-1556906918-c3071566eca0?auto=format&fit=crop&w=800&q=80"
-    },
+
     {
       "id": 47,
       "name": "Sport Sandals",
