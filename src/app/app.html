@@ -1,9 +1,9 @@
 <section class="flex flex-col h-screen">
   <app-header />
 
-  <section class="flex flex-1 border-t border-[var(--p-gray-400)] min-h-0">
+  <section class="flex flex-1 p-4 min-h-0">
     <app-sidenav
-      class="w-80 border-r border-[var(--p-gray-400)]"
+      class="w-80 pr-4 pt-4 border-r border-[var(--p-gray-400)]"
       [products]="products()"
       (filteredProductsChange)="onFilteredProductsChange($event)"
     />
